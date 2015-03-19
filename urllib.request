@@ -1,4 +1,4 @@
-import urllib.request
+import urllib.request                                        //python>3.0
 url = "http://www.chinabaiker.com"
 body = urllib.request.urlopen(url).read()
 print body
