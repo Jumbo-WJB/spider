@@ -34,7 +34,8 @@ for a in i:
 						imgg = g.split('/')[-1]
 						print imgg	
 						print 'a'*20
-						urllib.urlretrieve(g,imgg)
+						local = os.path.join('images',imgg)
+						urllib.urlretrieve(g,local)
 					except:
 						
 						break
@@ -63,7 +64,8 @@ for a in i:
 						imgg = g.split('/')[-1]
 						print imgg	
 						print 'a'*20
-						urllib.urlretrieve(g,imgg)
+						local = os.path.join('images',imgg)
+						urllib.urlretrieve(g,local)
 					except:
 					
 						break
@@ -78,3 +80,4 @@ for a in i:
 //还有就是保存文件名中文的问题，本来想直接以数字.html来保存文件名，但是那样太不规范了，想找资料都不好找，但是以文件名作为文件名保存的话，中文又是乱码，后来用decode解决，在23行代码处，open(k[1].decode('utf-8') + '.html','w+')
 //还有解析图片的问题，利用beautifulsoup可以解析出图片，但是有的图片是中文的，比如是QQ图片这样，图片这两个中文又是乱码，最后利用26行代码处soup = BeautifulSoup(neirong2,from_encoding='gbk')解决。
 //最后下载图片，beautifulsoup解析出来的图片是这样的形式，http://www.baidu.com/images/20110111/xxxx.jpg，当初一直想用正则取出xxxx.jpg作为下载回来保存的文件名，一直用正则不行，后来发现可以用split切出来，在63行代码处，以“/”进行切割，然后取最后一一个值，imgg = g.split('/')[-1]
+//利用os.path.join把图片全部下载到images文件夹中
